@@ -15,8 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
-# define BUFF_SIZE 64
+# define BUFF_SIZE 4096
 # define MAX_FD 256
 
 void				*ft_memset(void *b, int c, size_t len);

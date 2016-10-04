@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
+#include "../incl/filler.h"
 
-# include "../libft/incl/libft.h"
-# include "../libft/incl/ft_printf.h"
-
-typedef struct	s_filler
+t_filler	*init_game(t_filler *game)
 {
-	t_board		*board;
-	t_piece		*piece;
-	char		player;
-}				t_filer;
-
-typedef struct	s_board
-{
-	char		**data;
-	size_t		size_x;
-	size_t		size_y;
-}				t_board;
-
-typedef struct	s_piece
-{
-	char		**data;
-	size_t		size_x;
-	size_t		size_y;
-}				t_board;
-
-#endif
+	game = (t_filler *)malloc(sizeof(t_filler));
+	game->board = (t_board *)malloc(sizeof(t_board));
+	game->board->data = NULL;
+	game->board->size_x = 0;
+	game->board->size_y = 0;
+	game->piece = (t_piece *)malloc(sizeof(t_piece));
+	game->piece->data = NULL;
+	game->piece->size_x = 0;
+	game->piece->size_y = 0;
+	game->player = 0;
+	return (game);
+}

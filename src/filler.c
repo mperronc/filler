@@ -14,4 +14,14 @@
 
 int main(void)
 {
+	t_filler	*game;
+	char		*line;
+
+	game = (t_filler *)malloc(sizeof(t_filler));
+	init_game(game);
+	while (get_next_line(0, &line) > 0)
+	{
+		/* do stuff */
+	}
+	return (0);
 }

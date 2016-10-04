@@ -15,8 +15,6 @@
 
 # include "libft.h"
 # include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
 
 typedef int	t_bool;
 # define TRUE 1
@@ -43,7 +41,6 @@ typedef struct		s_specs
 
 int					ft_printf(const char *restrict format, ...);
 void				init_specs(t_specs *specs);
-void				print_specs(t_specs *specs);
 const char			*parse_specs(const char *restrict string, t_specs *specs);
 const char			*parse_flags(const char *restrict string, t_specs *specs);
 const char			*parse_length(const char *restrict string, t_specs *specs);

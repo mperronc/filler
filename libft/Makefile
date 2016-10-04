@@ -121,7 +121,6 @@ SRC_NAME = 	format_char.c \
 			parse_specs.c \
 			parse_type.c \
 			parse_width.c \
-			print_specs.c \
 			strip_sign.c
 
 OBJ_PATH = ./obj/
