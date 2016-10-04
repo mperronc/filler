@@ -148,6 +148,8 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
+.PHONY: clean fclean re
+
 clean:
 	rm -fv $(OBJ)
 	@rmdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
