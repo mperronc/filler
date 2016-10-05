@@ -16,25 +16,31 @@
 # include "../libft/incl/libft.h"
 # include "../libft/incl/ft_printf.h"
 
-typedef struct	s_filler
-{
-	t_board		*board;
-	t_piece		*piece;
-	char		player;
-}				t_filer;
-
 typedef struct	s_board
 {
 	char		**data;
-	size_t		size_x;
-	size_t		size_y;
+	int			size_x;
+	int			size_y;
 }				t_board;
 
 typedef struct	s_piece
 {
 	char		**data;
-	size_t		size_x;
-	size_t		size_y;
-}				t_board;
+	int			size_x;
+	int			size_y;
+}				t_piece;
+
+typedef struct	s_filler
+{
+	t_board		*board;
+	t_piece		*piece;
+	char		player;
+	char		enemy;
+	int			error;
+}				t_filler;
+
+t_filler	*init_game(t_filler *game);
+void		parse_line(char *line, t_filler *game);
+
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   get_board.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,28 @@
 
 #include "../incl/filler.h"
 
-t_filler	*init_game(t_filler *game)
+static void		free_dimensions(char **dimensions)
 {
-	game = (t_filler *)malloc(sizeof(t_filler));
-	game->board = (t_board *)malloc(sizeof(t_board));
-	game->board->data = NULL;
-	game->board->size_x = 0;
-	game->board->size_y = 0;
-	game->piece = (t_piece *)malloc(sizeof(t_piece));
-	game->piece->data = NULL;
-	game->piece->size_x = 0;
-	game->piece->size_y = 0;
-	game->player = 0;
-	game->enemy = 0;
-	game->error = 0;
-	return (game);
+	int i;
+
+	i = 0;
+	while (dimensions[i])
+	{
+		free(dimensions[i])
+		i++;
+	}
+	free(dimensions);
+}
+
+void			get_board(char *line, t_filler *game)
+{
+	char	**dimensions;
+
+	dimensions = ft_strsplit(line);
+	game->board->size_x = ft_atoi(dimensions[1]);
+	game->board->size_y = ft_atoi(dimensions[2]);
+	if (game->board == NULL)
+		game->board = allocate_board(game->board->size_x, game->board->size_y);
+	update_board(game);
+	free_dimensions(dimensions);
 }

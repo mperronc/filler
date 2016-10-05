@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   update_board.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,35 @@
 
 #include "../incl/filler.h"
 
-t_filler	*init_game(t_filler *game)
+static int	get_offset(char	*line)
 {
-	game = (t_filler *)malloc(sizeof(t_filler));
-	game->board = (t_board *)malloc(sizeof(t_board));
-	game->board->data = NULL;
-	game->board->size_x = 0;
-	game->board->size_y = 0;
-	game->piece = (t_piece *)malloc(sizeof(t_piece));
-	game->piece->data = NULL;
-	game->piece->size_x = 0;
-	game->piece->size_y = 0;
-	game->player = 0;
-	game->enemy = 0;
-	game->error = 0;
-	return (game);
+	int offset;
+
+	offset = 0;
+	while (ft_isdigit(line[offset]))
+		offset++;
+	return (offset);
+}
+
+void	update_board(t_filler *game)
+{
+	char	*line;
+	int		i;
+	int		j;
+	int		offset;
+
+	get_next_line(0, &line);
+	i = 0;
+	while (i < game->board->size_y)
+	{
+		get_next_line(0, &line);
+		offset = get_offset(line);
+		j = 0;
+		while (j < game->board->size_x)
+		{
+			game->board[i][j] = line[j + offset];
+			j++;
+		}
+		i++;
+	}
 }

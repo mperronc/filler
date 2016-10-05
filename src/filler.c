@@ -20,8 +20,8 @@ int main(void)
 	game = (t_filler *)malloc(sizeof(t_filler));
 	init_game(game);
 	while (get_next_line(0, &line) > 0)
-	{
-		/* do stuff */
-	}
+		parse_line(line, game);
+	free_game(game);
+	free(line);
 	return (0);
 }

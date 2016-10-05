@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   allocate_board.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,15 @@
 
 #include "../incl/filler.h"
 
-t_filler	*init_game(t_filler *game)
+void	allocate_board(int size_x, int size_y)
 {
-	game = (t_filler *)malloc(sizeof(t_filler));
-	game->board = (t_board *)malloc(sizeof(t_board));
-	game->board->data = NULL;
-	game->board->size_x = 0;
-	game->board->size_y = 0;
-	game->piece = (t_piece *)malloc(sizeof(t_piece));
-	game->piece->data = NULL;
-	game->piece->size_x = 0;
-	game->piece->size_y = 0;
-	game->player = 0;
-	game->enemy = 0;
-	game->error = 0;
-	return (game);
+	char	**board;
+	int		i;
+
+	board = (char **)malloc(sizeof(char *) * (size_y + 1));
+	i = 0;
+	while (i < size_y)
+		board[i] = ft_strnew(size_x);
+	board[i] = 0;
+	return (board);
 }

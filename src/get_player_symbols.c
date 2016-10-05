@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   get_player_symbols.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,18 @@
 
 #include "../incl/filler.h"
 
-t_filler	*init_game(t_filler *game)
+void	get_player_symbols(char *line, t_filler *game)
 {
-	game = (t_filler *)malloc(sizeof(t_filler));
-	game->board = (t_board *)malloc(sizeof(t_board));
-	game->board->data = NULL;
-	game->board->size_x = 0;
-	game->board->size_y = 0;
-	game->piece = (t_piece *)malloc(sizeof(t_piece));
-	game->piece->data = NULL;
-	game->piece->size_x = 0;
-	game->piece->size_y = 0;
-	game->player = 0;
-	game->enemy = 0;
-	game->error = 0;
-	return (game);
+	if (ft_strstr(line, "exec p1"))
+	{
+		game->player = 'o';
+		game->enemy = 'x';
+	}
+	else if (ft_strstr(line, "exec p2"))
+	{
+		game->player = 'x';
+		game->enemy = 'o';
+	}
+	else
+		game->error = PLAYER_SYMBOL_PARSING_ERROR;
 }

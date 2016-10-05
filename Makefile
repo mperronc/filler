@@ -14,7 +14,9 @@
 
 SRC_PATH = ./src/
 
-SRC_NAME = filler.c
+SRC_NAME = 	filler.c \
+			init_game.c \
+			parse_line.c
 
 OBJ_PATH = ./obj/
 
@@ -32,6 +34,9 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 INC = $(addprefix -I,$(INC_PATH))
 
 all: $(NAME)
+
+filler:
+	cd resources && ./filler_vm -f maps/map02 -p1 players/abanlin.filler -p2 players/abanlin.filler
 
 $(NAME): $(OBJ)
 	make -C ./libft
