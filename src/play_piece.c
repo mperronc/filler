@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update_board.c                                     :+:      :+:    :+:   */
+/*   play_piece.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,35 +12,8 @@
 
 #include "../incl/filler.h"
 
-static int	get_offset(char	*line)
+void	play_piece(char *line, t_filler *game)
 {
-	int offset;
-
-	offset = 0;
-	while (ft_isdigit(line[offset]))
-		offset++;
-	return (offset);
-}
-
-void	update_board(t_filler *game)
-{
-	char	*line;
-	int		i;
-	int		j;
-	int		offset;
-
-	get_next_line(0, &line);
-	i = 0;
-	while (i < game->board->size_y)
-	{
-		get_next_line(0, &line);
-		offset = get_offset(line);
-		j = 0;
-		while (j < game->board->size_x)
-		{
-			game->board->data[i][j] = line[j + offset];
-			j++;
-		}
-		i++;
-	}
+	parse_piece(line, game);
+	make_move_naive(game);
 }

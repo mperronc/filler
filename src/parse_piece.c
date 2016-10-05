@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update_board.c                                     :+:      :+:    :+:   */
+/*   parse_piece.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,33 +12,37 @@
 
 #include "../incl/filler.h"
 
-static int	get_offset(char	*line)
+static void		free_dimensions(char **dimensions)
 {
-	int offset;
+	int i;
 
-	offset = 0;
-	while (ft_isdigit(line[offset]))
-		offset++;
-	return (offset);
+	i = 0;
+	while (dimensions[i])
+	{
+		free(dimensions[i])
+		i++;
+	}
+	free(dimensions);
 }
 
-void	update_board(t_filler *game)
+void	parse_piece(char *line, t_filler *game)
 {
-	char	*line;
 	int		i;
 	int		j;
-	int		offset;
 
-	get_next_line(0, &line);
+	dimensions = ft_strsplit(line);
+	game->piece->size_x = ft_atoi(dimensions[1]);
+	game->piece->size_y = ft_atoi(dimensions[2]);
+	game->piece->data = allocate_board(game->piece->size_x,
+										game->piece->size_y);
 	i = 0;
-	while (i < game->board->size_y)
+	while (i < game->piece->size_y)
 	{
 		get_next_line(0, &line);
-		offset = get_offset(line);
 		j = 0;
-		while (j < game->board->size_x)
+		while (j < game->piece->size_x)
 		{
-			game->board->data[i][j] = line[j + offset];
+			game->piece->data[i][j] = line[j];
 			j++;
 		}
 		i++;

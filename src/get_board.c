@@ -32,8 +32,9 @@ void			get_board(char *line, t_filler *game)
 	dimensions = ft_strsplit(line);
 	game->board->size_x = ft_atoi(dimensions[1]);
 	game->board->size_y = ft_atoi(dimensions[2]);
-	if (game->board == NULL)
-		game->board = allocate_board(game->board->size_x, game->board->size_y);
+	if (game->board->data == NULL)
+		game->board->data = allocate_board(game->board->size_x,
+											game->board->size_y);
 	update_board(game);
 	free_dimensions(dimensions);
 }
