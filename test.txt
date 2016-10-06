@@ -1,0 +1,23 @@
+$$$ exec p1 : [mperronc.filler]
+Plateau 10 15
+    0123456789
+000 ..........
+001 ..xx...x..
+002 ..ox.o.xo.
+003 .ox.ox.ox.
+004 .ox.ox.ox.
+005 .oxoxox.x.
+006 .........x
+007 xx....o.o.
+008 xx........
+009 ooxo.oxo.x
+010 xxxxxxxxxx
+011 oooooooooo
+012 ..........
+013 ...xx.xx..
+014 ..x.x..x.x
+Piece 3 4
+...
+.x.
+.xx
+..x

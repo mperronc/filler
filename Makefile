@@ -14,18 +14,27 @@
 
 SRC_PATH = ./src/
 
-SRC_NAME = 	filler.c \
+SRC_NAME =  allocate_board.c \
+			filler.c \
+			free_data.c \
+			free_game.c \
+			get_board.c \
+			get_player_symbols.c \
 			init_game.c \
-			parse_line.c
+			parse_line.c \
+			parse_piece.c \
+			play_piece.c \
+			print_board.c \
+			update_board.c
 
 OBJ_PATH = ./obj/
 
 INC_PATH = ./includes/
 
-NAME = resources/players/mperronc.filler
+NAME = mperronc.filler
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

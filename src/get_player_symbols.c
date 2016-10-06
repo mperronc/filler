@@ -25,5 +25,5 @@ void	get_player_symbols(char *line, t_filler *game)
 		game->enemy = 'o';
 	}
 	else
-		game->error = PLAYER_SYMBOL_PARSING_ERROR;
+		game->error = 1;
 }

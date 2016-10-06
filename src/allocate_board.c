@@ -12,7 +12,7 @@
 
 #include "../incl/filler.h"
 
-void	allocate_board(int size_x, int size_y)
+char	**allocate_board(int size_x, int size_y)
 {
 	char	**board;
 	int		i;
@@ -20,7 +20,10 @@ void	allocate_board(int size_x, int size_y)
 	board = (char **)malloc(sizeof(char *) * (size_y + 1));
 	i = 0;
 	while (i < size_y)
+	{
 		board[i] = ft_strnew(size_x);
+		i++;
+	}
 	board[i] = 0;
 	return (board);
 }

@@ -19,7 +19,7 @@ static int	get_offset(char	*line)
 	offset = 0;
 	while (ft_isdigit(line[offset]))
 		offset++;
-	return (offset);
+	return (offset + 1);
 }
 
 void	update_board(t_filler *game)

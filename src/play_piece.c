@@ -15,5 +15,5 @@
 void	play_piece(char *line, t_filler *game)
 {
 	parse_piece(line, game);
-	make_move_naive(game);
+	// make_move_naive(game);
 }

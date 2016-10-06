@@ -17,10 +17,18 @@ int main(void)
 	t_filler	*game;
 	char		*line;
 
-	game = (t_filler *)malloc(sizeof(t_filler));
-	init_game(game);
+	game = NULL;
+	game = init_game(game);
+
 	while (get_next_line(0, &line) > 0)
+	{
 		parse_line(line, game);
+	}
+	ft_printf("Player symbol is : %c\n", game->player);
+	ft_printf("Board state is :\n");
+	print_board(game->board->data, game->board->size_y);
+	ft_printf("Piece I got is :\n");
+	print_board(game->piece->data, game->piece->size_y);
 	free_game(game);
 	free(line);
 	return (0);

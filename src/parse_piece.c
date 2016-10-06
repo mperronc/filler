@@ -12,25 +12,13 @@
 
 #include "../incl/filler.h"
 
-static void		free_dimensions(char **dimensions)
-{
-	int i;
-
-	i = 0;
-	while (dimensions[i])
-	{
-		free(dimensions[i])
-		i++;
-	}
-	free(dimensions);
-}
-
 void	parse_piece(char *line, t_filler *game)
 {
 	int		i;
 	int		j;
+	char	**dimensions;
 
-	dimensions = ft_strsplit(line);
+	dimensions = ft_strsplit(line, ' ');
 	game->piece->size_x = ft_atoi(dimensions[1]);
 	game->piece->size_y = ft_atoi(dimensions[2]);
 	game->piece->data = allocate_board(game->piece->size_x,
@@ -38,7 +26,7 @@ void	parse_piece(char *line, t_filler *game)
 	i = 0;
 	while (i < game->piece->size_y)
 	{
-		get_next_line(0, &line);
+		get_next_line(3, &line);
 		j = 0;
 		while (j < game->piece->size_x)
 		{
@@ -47,4 +35,5 @@ void	parse_piece(char *line, t_filler *game)
 		}
 		i++;
 	}
+	free_data(dimensions);
 }

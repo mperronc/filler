@@ -39,8 +39,16 @@ typedef struct	s_filler
 	int			error;
 }				t_filler;
 
+char		**allocate_board(int size_x, int size_y);
+void		free_data(char **data);
+void		free_game(t_filler *game);
+void		get_board(char *line, t_filler *game);
+void		get_player_symbols(char *line, t_filler *game);
 t_filler	*init_game(t_filler *game);
 void		parse_line(char *line, t_filler *game);
-
+void		parse_piece(char *line, t_filler *game);
+void		play_piece(char *line, t_filler *game);
+void		print_board(char **data, int size_y);
+void		update_board(t_filler *game);
 
 #endif
