@@ -19,14 +19,14 @@ void	parse_piece(char *line, t_filler *game)
 	char	**dimensions;
 
 	dimensions = ft_strsplit(line, ' ');
-	game->piece->size_x = ft_atoi(dimensions[1]);
-	game->piece->size_y = ft_atoi(dimensions[2]);
+	game->piece->size_x = ft_atoi(dimensions[2]);
+	game->piece->size_y = ft_atoi(dimensions[1]);
 	game->piece->data = allocate_board(game->piece->size_x,
 										game->piece->size_y);
 	i = 0;
 	while (i < game->piece->size_y)
 	{
-		get_next_line(3, &line);
+		get_next_line(0, &line);
 		j = 0;
 		while (j < game->piece->size_x)
 		{

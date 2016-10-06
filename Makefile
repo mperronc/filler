@@ -21,17 +21,19 @@ SRC_NAME =  allocate_board.c \
 			get_board.c \
 			get_player_symbols.c \
 			init_game.c \
+			make_move_naive.c \
 			parse_line.c \
 			parse_piece.c \
 			play_piece.c \
 			print_board.c \
+			try_move.c \
 			update_board.c
 
 OBJ_PATH = ./obj/
 
 INC_PATH = ./includes/
 
-NAME = mperronc.filler
+NAME = resources/players/mperronc.filler
 
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -g
@@ -44,8 +46,8 @@ INC = $(addprefix -I,$(INC_PATH))
 
 all: $(NAME)
 
-filler:
-	cd resources && ./filler_vm -f maps/map02 -p1 players/abanlin.filler -p2 players/abanlin.filler
+filler: all
+	cd resources && ./filler_vm -f maps/map00 -p1 players/mperronc.filler -p2 players/mperronc.filler
 
 $(NAME): $(OBJ)
 	make -C ./libft

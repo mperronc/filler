@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   make_move_naive.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,24 @@
 
 #include "../incl/filler.h"
 
-int main(void)
+void	make_move_naive(t_filler *game)
 {
-	t_filler	*game;
-	char		*line;
+	int		move_found;
+	int		i;
+	int		j;
 
-	game = NULL;
-	game = init_game(game);
-
-	while (get_next_line(0, &line))
+	move_found = 0;
+	i = 0;
+	while (!move_found && i < game->board->size_y - game->piece->size_y + 1)
 	{
-		parse_line(line, game);
+		j = 0;
+		while (!move_found && j < game->board->size_x - game->piece->size_x + 1)
+		{
+			move_found = try_move(game, j, i);
+			j++;
+		}
+		i++;
 	}
-	free_game(game);
-	free(line);
-	return (0);
+	if (!move_found)
+		ft_putstr("-1\n");
 }
