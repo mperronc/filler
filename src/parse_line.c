@@ -21,5 +21,5 @@ void	parse_line(char *line, t_filler *game)
 	else if (ft_strstr(line, "Piece"))
 		play_piece(line, game);
 	else
-		game->error = 1;
+		return ;
 }

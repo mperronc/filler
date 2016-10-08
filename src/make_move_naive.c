@@ -30,6 +30,4 @@ void	make_move_naive(t_filler *game)
 		}
 		i++;
 	}
-	if (!move_found)
-		ft_putstr("-1\n");
 }

@@ -24,16 +24,17 @@ static int	get_offset(char	*line)
 
 void	update_board(t_filler *game)
 {
-	char	*line;
 	int		i;
 	int		j;
 	int		offset;
+	char	*line;
 
-	get_next_line(0, &line);
+	line = NULL;
+	line = get_header_line(line);
 	i = 0;
 	while (i < game->board->size_y)
 	{
-		get_next_line(0, &line);
+		line = get_header_line(line);
 		offset = get_offset(line);
 		j = 0;
 		while (j < game->board->size_x)

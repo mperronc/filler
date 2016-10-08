@@ -19,10 +19,6 @@ int		try_move(t_filler *game, int x, int y)
 	int		invalid;
 	int		player_symbols;
 
-
-//	int fd;
-//	int	fd_two;
-
 	i = 0;
 	player_symbols = 0;
 	invalid = 0;
@@ -43,13 +39,8 @@ int		try_move(t_filler *game, int x, int y)
 	}
 	if (!invalid && player_symbols == 1)
 	{
-		ft_putnbr(x);
-		ft_putstr(" ");
-		ft_putnbr(y);
-		ft_putstr("\n");
-	//	ft_printf("%d %d\n", x, y);
+		ft_printf("%d %d\n", y, x);
 		return (1);
 	}
-	else
-		return (0);
+	return (0);
 }

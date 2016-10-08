@@ -20,6 +20,7 @@ SRC_NAME =  allocate_board.c \
 			free_game.c \
 			get_board.c \
 			get_player_symbols.c \
+			get_header_line.c \
 			init_game.c \
 			make_move_naive.c \
 			parse_line.c \

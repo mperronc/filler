@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_piece.c                                       :+:      :+:    :+:   */
+/*   get_data_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,30 +12,22 @@
 
 #include "../incl/filler.h"
 
-void	parse_piece(char *line, t_filler *game)
+char	*get_header_line(char *line)
 {
+	char	c;
+	char	buf[1024];
 	int		i;
-	int		j;
-	char	**dimensions;
-	char	*tmp;
 
-	tmp = NULL;
-	dimensions = ft_strsplit(line, ' ');
-	game->piece->size_x = ft_atoi(dimensions[2]);
-	game->piece->size_y = ft_atoi(dimensions[1]);
-	game->piece->data = allocate_board(game->piece->size_x,
-										game->piece->size_y);
+	if (line)
+		free(line);
 	i = 0;
-	while (i < game->piece->size_y)
+	c = 0;
+	read(0, &c, 1);
+	while (i < 1024 && c != '\n')
 	{
-		tmp = get_header_line(tmp);
-		j = 0;
-		while (j < game->piece->size_x)
-		{
-			game->piece->data[i][j] = tmp[j];
-			j++;
-		}
-		i++;
+		buf[i++] = c;
+		read(0, &c, 1);
 	}
-	free_data(dimensions);
+	buf[i] = 0;
+	return (ft_strdup(buf));
 }

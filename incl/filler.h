@@ -44,6 +44,7 @@ void		free_data(char **data);
 void		free_game(t_filler *game);
 void		get_board(char *line, t_filler *game);
 void		get_player_symbols(char *line, t_filler *game);
+char		*get_header_line(char *line);
 t_filler	*init_game(t_filler *game);
 void		make_move_naive(t_filler *game);
 void		parse_line(char *line, t_filler *game);

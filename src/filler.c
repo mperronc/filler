@@ -17,11 +17,13 @@ int main(void)
 	t_filler	*game;
 	char		*line;
 
+	line = NULL;
 	game = NULL;
 	game = init_game(game);
 
-	while (get_next_line(0, &line))
+	while (game->error == 0)
 	{
+		line = get_header_line(line);
 		parse_line(line, game);
 	}
 	free_game(game);
