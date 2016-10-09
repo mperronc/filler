@@ -80,6 +80,7 @@ void				ft_putnbr_fd(int n, int fd);
 int					get_next_line(int const fd, char **line);
 int					ft_min2(int x, int y);
 int					ft_max2(int x, int y);
+int					ft_abs(int n);
 
 typedef struct		s_list
 {

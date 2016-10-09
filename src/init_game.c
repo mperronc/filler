@@ -12,8 +12,10 @@
 
 #include "../incl/filler.h"
 
-t_filler	*init_game(t_filler *game)
+t_filler	*init_game()
 {
+	t_filler *game;
+	
 	game = (t_filler *)malloc(sizeof(t_filler));
 	game->board = (t_board *)malloc(sizeof(t_board));
 	game->board->data = NULL;

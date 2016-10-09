@@ -14,6 +14,18 @@
 
 void	play_piece(char *line, t_filler *game)
 {
+	t_moves		*moves;
+
+	moves = init_moves(100);
 	parse_piece(line, game);
-	make_move_naive(game);
+	find_moves(moves, game);
+	if (moves->cur_moves > 0)
+		choose_move(moves, game);
+	else
+	{
+		ft_printf("%d %d\n", game->board->size_y, game->board->size_x);
+		game->error = 1;
+	}
+	free_moves(moves);
+	free_data(game->piece->data);	
 }

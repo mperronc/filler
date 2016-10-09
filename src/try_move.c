@@ -27,10 +27,10 @@ int		try_move(t_filler *game, int x, int y)
 		j = 0;
 		while (!invalid && j < game->piece->size_x)
 		{
-			if (ft_tolower(game->board->data[y + i][x + j]) == game->player
+			if (ft_toupper(game->board->data[y + i][x + j]) == game->player
 				&& game->piece->data[i][j] == '*')
 				player_symbols++;
-			else if (ft_tolower(game->board->data[y + i][x + j]) == game->enemy
+			else if (ft_toupper(game->board->data[y + i][x + j]) == game->enemy
 						&& game->piece->data[i][j] == '*')
 				invalid = 1;
 			j++;
@@ -38,9 +38,6 @@ int		try_move(t_filler *game, int x, int y)
 		i++;
 	}
 	if (!invalid && player_symbols == 1)
-	{
-		ft_printf("%d %d\n", y, x);
 		return (1);
-	}
 	return (0);
 }

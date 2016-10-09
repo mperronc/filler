@@ -18,8 +18,7 @@ int main(void)
 	char		*line;
 
 	line = NULL;
-	game = NULL;
-	game = init_game(game);
+	game = init_game();
 
 	while (game->error == 0)
 	{

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_move_naive.c                                  :+:      :+:    :+:   */
+/*   find_moves.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,22 @@
 
 #include "../incl/filler.h"
 
-void	make_move_naive(t_filler *game)
+void	find_moves(t_moves *moves, t_filler *game)
 {
-	int		move_found;
 	int		i;
 	int		j;
 
-	move_found = 0;
 	i = 0;
-	while (!move_found && i < game->board->size_y - game->piece->size_y + 1)
+	while (i < game->board->size_y - game->piece->size_y + 1)
 	{
 		j = 0;
-		while (!move_found && j < game->board->size_x - game->piece->size_x + 1)
+		while (j < game->board->size_x - game->piece->size_x + 1)
 		{
-			move_found = try_move(game, j, i);
+			if (try_move(game, j, i))
+			{
+				//ft_printf("move at %d %d\n", i, j);
+				add_move(moves, j, i);
+			}
 			j++;
 		}
 		i++;

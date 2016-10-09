@@ -15,14 +15,14 @@
 char	*get_header_line(char *line)
 {
 	char	c;
-	char	buf[1024];
+	char	buf[4096];
 	int		i;
 
 	if (line)
 		free(line);
 	i = 0;
 	c = 0;
-	while (i < 1024 && c != '\n')
+	while (i < 4096 && c != '\n')
 	{
 		read(0, &c, 1);
 		buf[i++] = c;

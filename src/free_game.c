@@ -15,7 +15,6 @@
 void	free_game(t_filler *game)
 {
 	free_data(game->board->data);
-	free_data(game->piece->data);
 	free(game->board);
 	free(game->piece);
 	free(game);

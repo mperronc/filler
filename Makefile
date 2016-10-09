@@ -15,18 +15,21 @@
 SRC_PATH = ./src/
 
 SRC_NAME =  allocate_board.c \
+			choose_move.c \
 			filler.c \
+			find_moves.c \
 			free_data.c \
 			free_game.c \
 			get_board.c \
 			get_player_symbols.c \
+			get_data_line.c \
 			get_header_line.c \
 			init_game.c \
-			make_move_naive.c \
 			parse_line.c \
 			parse_piece.c \
 			play_piece.c \
 			print_board.c \
+			t_moves_funcs.c \
 			try_move.c \
 			update_board.c
 
@@ -48,7 +51,7 @@ INC = $(addprefix -I,$(INC_PATH))
 all: $(NAME)
 
 filler: all
-	cd resources && ./filler_vm -f maps/map00 -p1 players/mperronc.filler -p2 players/mperronc.filler
+	cd resources && ./filler_vm -f maps/map00 -p2 players/mperronc.filler -p1 players/abanlin.filler
 
 $(NAME): $(OBJ)
 	make -C ./libft
