@@ -51,7 +51,7 @@ INC = $(addprefix -I,$(INC_PATH))
 all: $(NAME)
 
 filler: all
-	cd resources && ./filler_vm -f maps/map00 -p2 players/mperronc.filler -p1 players/abanlin.filler
+	cd resources && ./filler_vm -f maps/map01 -p1 players/mperronc.filler -p2 players/hcao.filler
 
 $(NAME): $(OBJ)
 	make -C ./libft
