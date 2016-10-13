@@ -12,7 +12,19 @@
 
 #include "../incl/filler.h"
 
-t_moves		*init_moves(size)
+void		zeroes(int *tab, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		tab[i] = 0;
+		i++;
+	}
+}
+
+t_moves		*init_moves(int size)
 {
 	t_moves	*moves;
 
@@ -20,15 +32,20 @@ t_moves		*init_moves(size)
 	moves->cur_moves = 0;
 	moves->max_moves = size;
 	moves->x = (int *)malloc(sizeof(int) * size);
+	zeroes(moves->x, size);
 	moves->y = (int *)malloc(sizeof(int) * size);
+	zeroes(moves->y, size);
 	return (moves);
 }
 
 void		free_moves(t_moves *moves)
 {
 	free(moves->x);
+	moves->x = NULL;
 	free(moves->y);
+	moves->y = NULL;
 	free(moves);
+	moves = NULL;
 }
 
 void		extend_moves(t_moves *moves)
@@ -39,17 +56,20 @@ void		extend_moves(t_moves *moves)
 
 	tmpx = moves->x;
 	tmpy = moves->y;
-	moves->x = (int *)malloc(sizeof(int) * moves->max_moves + 100);
-	moves->y = (int *)malloc(sizeof(int) * moves->max_moves + 100);
+	moves->x = (int *)malloc(sizeof(int) * moves->max_moves + 10000);
+	moves->y = (int *)malloc(sizeof(int) * moves->max_moves + 10000);
 	i = 0;
 	while (i < moves->max_moves)
 	{
 		moves->x[i] = tmpx[i];
 		moves->y[i] = tmpy[i];
+		i++;
 	}
+	zeroes(&(moves->x[i]), 10000);
+	zeroes(&(moves->y[i]), 10000);
 	free(tmpx);
 	free(tmpy);
-	moves->max_moves += 100;
+	moves->max_moves += 10000;
 }
 
 void		add_move(t_moves *moves, int x, int y)

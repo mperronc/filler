@@ -44,4 +44,5 @@ void	update_board(t_filler *game)
 		}
 		i++;
 	}
+	free(line);
 }

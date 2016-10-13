@@ -19,8 +19,9 @@ void	free_data(char **data)
 	i = 0;
 	while (data[i])
 	{
-		free(data[i]);
+		ft_strdel(&(data[i]));
 		i++;
 	}
 	free(data);
+	data = NULL;
 }

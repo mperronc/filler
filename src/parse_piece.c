@@ -37,5 +37,6 @@ void	parse_piece(char *line, t_filler *game)
 		}
 		i++;
 	}
+	free(tmp);
 	free_data(dimensions);
 }

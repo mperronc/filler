@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_moves.c                                  :+:      :+:    :+:   */
+/*   find_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,10 +24,7 @@ void	find_moves(t_moves *moves, t_filler *game)
 		while (j < game->board->size_x - game->piece->size_x + 1)
 		{
 			if (try_move(game, j, i))
-			{
-				//ft_printf("move at %d %d\n", i, j);
 				add_move(moves, j, i);
-			}
 			j++;
 		}
 		i++;

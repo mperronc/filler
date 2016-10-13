@@ -1,9 +1,0 @@
-# -------------- VM  version 1.1 ------------- #
-#                                              #
-# 42 / filler VM Developped by: Hcao - Abanlin #
-#                                              #
-# -------------------------------------------- #
-launched players/mperronc.filler
-launched players/superjeannot.filler
-== O fin: 64
-== X fin: 246
