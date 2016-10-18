@@ -12,7 +12,7 @@
 
 #include "../incl/filler.h"
 
-static int	get_offset(char	*line)
+static int	get_offset(char *line)
 {
 	int offset;
 
@@ -22,7 +22,7 @@ static int	get_offset(char	*line)
 	return (offset + 1);
 }
 
-void	update_board(t_filler *game)
+void		update_board(t_filler *game)
 {
 	int		i;
 	int		j;

@@ -12,7 +12,7 @@
 
 #include "../incl/filler.h"
 
-static double calc_dist(int x1, int y1, int x2, int y2)
+static double	calc_dist(int x1, int y1, int x2, int y2)
 {
 	int dx;
 	int dy;
@@ -26,10 +26,10 @@ static double calc_dist(int x1, int y1, int x2, int y2)
 	return (1.414 * min + max - min);
 }
 
-void	choose_move(t_moves *moves, t_filler *game)
+void			choose_move(t_moves *moves, t_filler *game)
 {
 	int		i;
-	double  distance;
+	double	distance;
 	double	min_distance;
 	int		imove;
 
@@ -38,7 +38,8 @@ void	choose_move(t_moves *moves, t_filler *game)
 	min_distance = game->board->size_x * game->board->size_y;
 	while (i < moves->cur_moves)
 	{
-		distance = calc_dist(moves->x[i], moves->y[i], game->board->size_x / 2, game->board->size_y / 2);
+		distance = calc_dist(moves->x[i], moves->y[i],
+							game->board->size_x / 2, game->board->size_y / 2);
 		if (distance < min_distance)
 		{
 			min_distance = distance;

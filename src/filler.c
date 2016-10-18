@@ -12,14 +12,13 @@
 
 #include "../incl/filler.h"
 
-int main(void)
+int		main(void)
 {
 	t_filler	*game;
 	char		*line;
 
 	line = NULL;
 	game = init_game();
-
 	while (game->error == 0)
 	{
 		line = get_header_line(line);

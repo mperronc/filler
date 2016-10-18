@@ -22,7 +22,7 @@ int		try_move(t_filler *game, int x, int y)
 	i = 0;
 	player_symbols = 0;
 	invalid = 0;
-	while(!invalid && i < game->piece->size_y)
+	while (!invalid && i < game->piece->size_y)
 	{
 		j = 0;
 		while (!invalid && j < game->piece->size_x)
@@ -37,7 +37,5 @@ int		try_move(t_filler *game, int x, int y)
 		}
 		i++;
 	}
-	if (!invalid && player_symbols == 1)
-		return (1);
-	return (0);
+	return ((!invalid && player_symbols == 1) ? 1 : 0);
 }
