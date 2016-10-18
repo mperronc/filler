@@ -17,6 +17,8 @@
 # include "../libft/incl/ft_printf.h"
 # include <stdio.h>
 
+# define MOVES_STORAGE 10000
+
 typedef struct	s_board
 {
 	char		**data;

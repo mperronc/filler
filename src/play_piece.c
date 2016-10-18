@@ -16,7 +16,7 @@ void	play_piece(char *line, t_filler *game)
 {
 	t_moves		*moves;
 
-	moves = init_moves(10000);
+	moves = init_moves(MOVES_STORAGE);
 	parse_piece(line, game);
 	find_moves(moves, game);
 	if (moves->cur_moves > 0)

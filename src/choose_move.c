@@ -12,6 +12,10 @@
 
 #include "../incl/filler.h"
 
+#define SQRT 1.4142
+#define MIDDLE_X game->board->size_x / 2
+#define MIDDLE_Y game->board->size_y / 2
+
 static double	calc_dist(int x1, int y1, int x2, int y2)
 {
 	int dx;
@@ -23,7 +27,7 @@ static double	calc_dist(int x1, int y1, int x2, int y2)
 	dy = ft_abs(y2 - y1);
 	min = ft_min2(dx, dy);
 	max = ft_max2(dx, dy);
-	return (1.414 * min + max - min);
+	return (SQRT * min + max - min);
 }
 
 void			choose_move(t_moves *moves, t_filler *game)
@@ -38,8 +42,7 @@ void			choose_move(t_moves *moves, t_filler *game)
 	min_distance = game->board->size_x * game->board->size_y;
 	while (i < moves->cur_moves)
 	{
-		distance = calc_dist(moves->x[i], moves->y[i],
-							game->board->size_x / 2, game->board->size_y / 2);
+		distance = calc_dist(moves->x[i], moves->y[i], MIDDLE_X, MIDDLE_Y);
 		if (distance < min_distance)
 		{
 			min_distance = distance;

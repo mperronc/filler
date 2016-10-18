@@ -56,8 +56,8 @@ void		extend_moves(t_moves *moves)
 
 	tmpx = moves->x;
 	tmpy = moves->y;
-	moves->x = (int *)malloc(sizeof(int) * moves->max_moves + 10000);
-	moves->y = (int *)malloc(sizeof(int) * moves->max_moves + 10000);
+	moves->x = (int *)malloc(sizeof(int) * moves->max_moves + MOVES_STORAGE);
+	moves->y = (int *)malloc(sizeof(int) * moves->max_moves + MOVES_STORAGE);
 	i = 0;
 	while (i < moves->max_moves)
 	{
@@ -65,11 +65,11 @@ void		extend_moves(t_moves *moves)
 		moves->y[i] = tmpy[i];
 		i++;
 	}
-	zeroes(&(moves->x[i]), 10000);
-	zeroes(&(moves->y[i]), 10000);
+	zeroes(&(moves->x[i]), MOVES_STORAGE);
+	zeroes(&(moves->y[i]), MOVES_STORAGE);
 	free(tmpx);
 	free(tmpy);
-	moves->max_moves += 10000;
+	moves->max_moves += MOVES_STORAGE;
 }
 
 void		add_move(t_moves *moves, int x, int y)

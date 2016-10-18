@@ -12,17 +12,19 @@
 
 #include "../incl/filler.h"
 
+#define BUF_SIZE 10000
+
 char	*get_header_line(char *line)
 {
 	char	c;
-	char	buf[4096];
+	char	buf[BUF_SIZE];
 	int		i;
 
 	if (line)
 		free(line);
 	i = 0;
 	c = 0;
-	while (i < 4096 && c != '\n')
+	while (i < BUF_SIZE && c != '\n')
 	{
 		read(0, &c, 1);
 		buf[i++] = c;
