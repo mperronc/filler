@@ -27,6 +27,8 @@ t_filler	*init_game(void)
 	game->piece->size_y = 0;
 	game->player = 0;
 	game->enemy = 0;
+	game->target_x = -1;
+	game->target_y = -1;
 	game->error = 0;
 	return (game);
 }

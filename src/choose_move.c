@@ -42,7 +42,8 @@ void			choose_move(t_moves *moves, t_filler *game)
 	min_distance = game->board->size_x * game->board->size_y;
 	while (i < moves->cur_moves)
 	{
-		distance = calc_dist(moves->x[i], moves->y[i], MIDDLE_X, MIDDLE_Y);
+		get_target(game);
+		distance = calc_dist(moves->x[i], moves->y[i], game->target_x, game->target_y);
 		if (distance < min_distance)
 		{
 			min_distance = distance;

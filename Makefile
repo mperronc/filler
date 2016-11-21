@@ -24,6 +24,8 @@ SRC_NAME =  allocate_board.c \
 			get_player_symbols.c \
 			get_data_line.c \
 			get_header_line.c \
+			get_init_pos.c \
+			get_target.c \
 			init_game.c \
 			parse_line.c \
 			parse_piece.c \

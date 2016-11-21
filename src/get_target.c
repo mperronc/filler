@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_board.c                                        :+:      :+:    :+:   */
+/*   get_target.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperronc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,12 @@
 
 #include "../incl/filler.h"
 
-void	get_board(char *line, t_filler *game)
+void	get_target(t_filler *game)
 {
-	char	**dimensions;
+	int		sectrors[9];
 
-	dimensions = ft_strsplit(line, ' ');
-	game->board->size_x = ft_atoi(dimensions[2]);
-	game->board->size_y = ft_atoi(dimensions[1]);
-	if (game->board->data == NULL)
-		game->board->data = allocate_board(game->board->size_x,
-											game->board->size_y);
-	update_board(game);
-	if (game->enemy_init_y < 0)
-		get_init_pos(game);
-	free_data(dimensions);
+	i = 0;
+	j = 0;
+	
+
 }

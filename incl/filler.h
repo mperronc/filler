@@ -39,6 +39,8 @@ typedef struct	s_filler
 	t_piece		*piece;
 	char		player;
 	char		enemy;
+	int			target_x;
+	int			target_y;
 	int			error;
 }				t_filler;
 
@@ -62,6 +64,8 @@ void		get_board(char *line, t_filler *game);
 void		get_player_symbols(char *line, t_filler *game);
 char		*get_data_line(char *line, int size);
 char		*get_header_line(char *line);
+void		get_init_pos(t_filler *game);
+void		get_target(t_filler *game);
 t_filler	*init_game();
 t_moves		*init_moves(int size);
 void		make_move_naive(t_filler *game);

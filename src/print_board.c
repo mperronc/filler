@@ -19,7 +19,7 @@ void	print_board(char **data, int size_y)
 	i = 0;
 	while (i < size_y)
 	{
-		ft_printf("%s\n", data[i]);
+		fprintf(stderr, "%s\n", data[i]);
 		i++;
 	}
 }
