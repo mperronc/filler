@@ -24,7 +24,6 @@ SRC_NAME =  allocate_board.c \
 			get_player_symbols.c \
 			get_data_line.c \
 			get_header_line.c \
-			get_init_pos.c \
 			get_target.c \
 			init_game.c \
 			parse_line.c \
@@ -53,7 +52,7 @@ INC = $(addprefix -I,$(INC_PATH))
 all: $(NAME)
 
 filler: all
-	cd resources && ./filler_vm -f maps/map01 -p1 players/mperronc.filler -p2 players/hcao.filler
+	cd resources && ./filler_vm -f maps/map01 -p1 players/mperronc.filler -p2 players/carli.filler
 
 $(NAME): $(OBJ)
 	make -C ./libft

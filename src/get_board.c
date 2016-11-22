@@ -23,7 +23,5 @@ void	get_board(char *line, t_filler *game)
 		game->board->data = allocate_board(game->board->size_x,
 											game->board->size_y);
 	update_board(game);
-	if (game->enemy_init_y < 0)
-		get_init_pos(game);
 	free_data(dimensions);
 }
