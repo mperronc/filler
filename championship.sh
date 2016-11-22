@@ -1,5 +1,5 @@
 champion="players/mperronc.filler"
-
+make
 cd resources
 for filler in players/*
 do

@@ -29,11 +29,11 @@ static void	count_symbols(int **sectors, t_filler *game)
 				(5 * (i / (game->board->size_y / 5)));
 			x = x % 25;
 			if (game->board->data[i][j] == game->player)
-				(*sectors)[x] -= 3;
+				(*sectors)[x] -= 10;
 			else if (game->board->data[i][j] == game->enemy)
-				(*sectors)[x] += 1;
-			else if (game->board->data[i][j] == '.')
 				(*sectors)[x] += 3;
+			else if (game->board->data[i][j] == '.')
+				(*sectors)[x] += 10;
 			j++;
 		}
 		i++;
