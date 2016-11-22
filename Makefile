@@ -29,7 +29,6 @@ SRC_NAME =  allocate_board.c \
 			parse_line.c \
 			parse_piece.c \
 			play_piece.c \
-			print_board.c \
 			t_moves_funcs.c \
 			try_move.c \
 			update_board.c

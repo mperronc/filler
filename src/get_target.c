@@ -25,7 +25,8 @@ static void	count_symbols(int **sectors, t_filler *game)
 		j = 0;
 		while (j < game->board->size_x)
 		{
-			x = (j / (game->board->size_x / 5)) + (5 * (i / (game->board->size_y / 5)));
+			x = (j / (game->board->size_x / 5)) +
+				(5 * (i / (game->board->size_y / 5)));
 			x = x % 25;
 			if (game->board->data[i][j] == game->player)
 				(*sectors)[x] -= 3;
@@ -39,7 +40,7 @@ static void	count_symbols(int **sectors, t_filler *game)
 	}
 }
 
-static int get_max(int *sectors)
+static int	get_max(int *sectors)
 {
 	int max;
 	int i;
@@ -60,11 +61,13 @@ static void	choose_sector(int *sectors, t_filler *game)
 	int		x;
 
 	x = get_max(sectors);
-	game->target_x = (x % 5) * game->board->size_x / 5 + game->board->size_x / 10;
-	game->target_y = (x / 5) * game->board->size_y / 5 + game->board->size_y / 10;
+	game->target_x = (x % 5) * game->board->size_x / 5 +
+								game->board->size_x / 10;
+	game->target_y = (x / 5) * game->board->size_y / 5 +
+								game->board->size_y / 10;
 }
 
-void	get_target(t_filler *game)
+void		get_target(t_filler *game)
 {
 	int		*sectors;
 	int		i;

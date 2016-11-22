@@ -43,7 +43,8 @@ void			choose_move(t_moves *moves, t_filler *game)
 	while (i < moves->cur_moves)
 	{
 		get_target(game);
-		distance = calc_dist(moves->x[i], moves->y[i], game->target_x, game->target_y);
+		distance = calc_dist(moves->x[i], moves->y[i],
+			game->target_x, game->target_y);
 		if (distance < min_distance)
 		{
 			min_distance = distance;

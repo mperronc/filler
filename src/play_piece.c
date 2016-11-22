@@ -23,7 +23,7 @@ void	play_piece(char *line, t_filler *game)
 		choose_move(moves, game);
 	else
 	{
-		ft_printf("%d %d\n", game->board->size_y, game->board->size_x);
+		ft_printf("%d %d\n", game->board->size_y + 1, game->board->size_x + 1);
 		game->error = 1;
 	}
 	free_moves(moves);
